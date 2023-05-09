@@ -40,6 +40,7 @@ module.exports = {
       black: "#0C0C0C",
       error: "#C30000",
       success: "#00966D",
+      neutral: "#353535",
       "Shade-7": "#08100B",
       "Shade-6": "#102016",
       "Shade-5": "#183020",

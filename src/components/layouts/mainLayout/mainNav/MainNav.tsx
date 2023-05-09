@@ -10,17 +10,17 @@ import Link from "next/link";
 const MainNav = () => {
   return (
     <nav className="bg-White h-[64PX] text-Primary flex items-center justify-between px-[20px] py-[16px] md:px-[7vw]">
+      <div className="md:hidden">
+        <span>
+          <HambergerMenu />
+        </span>
+      </div>
       <div className="w-[110px]">
         <Link href={"/"}>
           <div>
             <Logo />
           </div>
         </Link>
-      </div>
-      <div className="md:hidden">
-        <span>
-          <HambergerMenu />
-        </span>
       </div>
 
       <div className="hidden md:block">
@@ -33,13 +33,8 @@ const MainNav = () => {
           <li>تماس با ما</li>
         </ul>
       </div>
-      
+
       <div className="flex gap-2">
-        <Link href={"/"}>
-          <div className="bg-Tint-1 px-[4px] py-[8px] w-6 rounded-[4px]">
-            <User />
-          </div>
-        </Link>
         <Link href={"/"}>
           <div className="bg-Tint-1 px-[4px] py-[8px] w-6 rounded-[4px]">
             <ShoppingCart />
@@ -48,6 +43,11 @@ const MainNav = () => {
         <Link href={"/"}>
           <div className="bg-Tint-1 px-[4px] py-[8px] w-6 rounded-[4px]">
             <SearchNormal1 />
+          </div>
+        </Link>
+        <Link href={"/"}>
+          <div className="bg-Tint-1 px-[4px] py-[8px] w-6 rounded-[4px]">
+            <User />
           </div>
         </Link>
       </div>
