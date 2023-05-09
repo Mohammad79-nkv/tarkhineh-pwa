@@ -26,7 +26,7 @@ const RestaurantMenu = () => {
                 fill
               />
             </div>
-            <button className="absolute bottom-[-15px] flex justify-center items-center bg-primary p-2 text-white shadow-cards-shadow rounded-4 w-20 md:w-24 h-8 text-xs md:text-base lg:h-12 lg:w-36 lg:text-xl lg:bottom-[-20px]">
+            <button className="absolute bottom-[-15px] flex justify-center items-center bg-primary p-2 text-white shadow-cards-shadow rounded-4 w-20 md:w-24 h-8 text-xs md:text-base lg:h-12 lg:w-36 lg:text-xl lg:bottom-[-20px] hover:bg-Shade-2 transition-all">
               {item.name}
             </button>
           </div>
