@@ -1,7 +1,13 @@
+import About from "./about/About";
 import RestaurantMenu from "./restaurantMenu/RestaurantMenu";
 
 const HomePage = () => {
-    return ( <RestaurantMenu /> );
-}
- 
+  return (
+    <>
+      <RestaurantMenu />
+      <About />
+    </>
+  );
+};
+
 export default HomePage;
