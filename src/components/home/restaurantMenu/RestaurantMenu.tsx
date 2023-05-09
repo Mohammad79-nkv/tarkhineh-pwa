@@ -10,22 +10,23 @@ const RestaurantMenu = () => {
 
   return (
     <section>
-      <p className="text-center text-2xl font-bold	">منوی رستوران</p>
-      <div className="flex justify-between px-[7vw] gap-6 h-[180px] mt-32">
+      <p className="text-center text-base md:text-2xl font-bold	">منوی رستوران</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 px-[7vw] gap-6 gap-y-20 md:mt-32 mt-12">
         {menuData.map((item) => (
           <div
             key={item.id}
-            className="h-full flex flex-col items-center justify-center relative border-primary shadow-cards-shadow border w-full rounded-8"
+            className="flex flex-col items-center justify-center relative border-primary shadow-cards-shadow border w-full rounded-4 md:rounded-8 md:h-[180px] h-[90px]"
           >
-            <div className="absolute top-[-100px]">
+            <div className="absolute top-[-50px] w-[110px] h-[110px] lg:w-[200px] lg:h-[200px] lg:top-[-100px] md:h-[150px] md:w-[150px] md:top-[-8 0px]">
               <Image
                 src={item.imageSrc}
                 alt={item.name}
-                width="200"
-                height="200"
+                // width="100"
+                // height="200"
+                fill
               />
             </div>
-            <button className="absolute bottom-[-20px] bg-primary p-2 text-white shadow-cards-shadow rounded-4 h-12 w-36 text-xl">
+            <button className="absolute bottom-[-15px] flex justify-center items-center bg-primary p-2 text-white shadow-cards-shadow rounded-4 w-20 md:w-24 h-8 text-xs md:text-base lg:h-12 lg:w-36 lg:text-xl lg:bottom-[-20px]">
               {item.name}
             </button>
           </div>
