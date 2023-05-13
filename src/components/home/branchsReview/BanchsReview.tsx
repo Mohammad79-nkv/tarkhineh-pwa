@@ -36,7 +36,7 @@ const BranchsReview = () => {
         {branchsData.map((branch) => (
           <div
             key={branch.id}
-            className="flex md:flex-col justify-between border border-Gray-4 hover:border-primary rounded-4 md:rounded-8 overflow-hidden sm:h-[150px] md:h-[344px] hover:shadow-cards-shadow transition-all"
+            className="flex md:flex-col justify-between border border-Gray-4 hover:border-primary md:hover:border-Gray-4 rounded-4 md:rounded-8 overflow-hidden sm:h-[150px] md:h-[344px] hover:shadow-cards-shadow transition-all"
           >
             <div className="relative w-[150px] sm:w-[280px] md:h-full md:w-full">
               <Image
