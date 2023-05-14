@@ -14,7 +14,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const MainNav = () => {
-  const [showProfileNav, setShowProfileNav] = useState(true);
+  const [showProfileNav, setShowProfileNav] = useState(false);
 
   const profileNavs = [
     {
@@ -49,7 +49,7 @@ const MainNav = () => {
     <>
       <div
         onClick={() => setShowProfileNav(false)}
-        className=" absolute w-screen h-screen right-0 left-0"
+        className={`block ${!showProfileNav && 'hidden'} absolute w-screen h-screen right-0 left-0`}
       ></div>
       <nav className="bg-White h-[64PX] text-Primary flex items-center justify-between px-[20px] py-[16px] md:px-[7vw]">
         <div className="md:hidden">
@@ -104,7 +104,7 @@ const MainNav = () => {
               <div
                 className={`${
                   !showProfileNav && "hidden"
-                } absolute rounded-4 md:rounded-8 z-10 bg-white
+                } absolute rounded-4 md:round- z-10 bg-white
              shadow-drop-shadow-2 top-10 md:top-14 left-0 w-40 lg:w-52 `}
               >
                 <ul>
