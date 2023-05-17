@@ -49,7 +49,9 @@ const MainNav = () => {
     <>
       <div
         onClick={() => setShowProfileNav(false)}
-        className={`block ${!showProfileNav && 'hidden'} absolute w-screen h-screen right-0 left-0`}
+        className={`block ${
+          !showProfileNav && "hidden"
+        } absolute w-screen h-screen right-0 left-0`}
       ></div>
       <nav className="bg-White h-[64PX] text-Primary flex items-center justify-between px-[20px] py-[16px] md:px-[7vw]">
         <div className="md:hidden">
@@ -80,7 +82,7 @@ const MainNav = () => {
           <Link href={"/"}>
             <div className="bg-Tint-1 md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">
               <ShoppingCart />
-            </div>
+            </div> 
           </Link>
           <Link href={"/"} className="hidden md:flex">
             <div className="bg-Tint-1 md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">
@@ -109,13 +111,18 @@ const MainNav = () => {
               >
                 <ul>
                   {profileNavs.map((item) => (
-                    <li key={item.id} className="hover:bg-Tint-1 transition-all">
+                    <li
+                      key={item.id}
+                      className="hover:bg-Tint-1 transition-all"
+                    >
                       <span
                         className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
                           !item.noBorder && "border-b"
                         }`}
                       >
-                        <span className="w-[15px] md:w-[20px] me-2 ">{item.icon}</span>{" "}
+                        <span className="w-[15px] md:w-[20px] me-2 ">
+                          {item.icon}
+                        </span>{" "}
                         {item.title}
                       </span>
                     </li>
