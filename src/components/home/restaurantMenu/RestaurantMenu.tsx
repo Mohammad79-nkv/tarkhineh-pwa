@@ -10,7 +10,7 @@ const RestaurantMenu = () => {
 
   return (
     <section className="pb-10 xl:pb-16">
-      <p className="text-center text-base md:text-2xl font-bold	">منوی رستوران</p>
+      <p className="text-center text-base md:text-2xl font-bold">منوی رستوران</p>
       <div className="grid grid-cols-2 md:grid-cols-4 px-[7vw] gap-6 gap-y-20 md:mt-32 mt-12">
         {menuData.map((item) => (
           <div

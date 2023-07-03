@@ -1,4 +1,3 @@
-import {} from "iconsax-react";
 
 const Footer = () => {
   return (
