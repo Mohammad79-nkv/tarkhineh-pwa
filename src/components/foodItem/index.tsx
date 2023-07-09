@@ -9,12 +9,12 @@ interface IProps {
 const FoodItem = (props: IProps) => {
   const { imgSrc } = props;
   return (
-    <div className="w-[168px] h-[223px] border border-Gray-4 rounded-4 flex flex-col justify-between">
+    <div className="bg-white w-[168px] sm:w-[188px] md:w-[208px] lg:w-[228px] xl:w-[288px]  h-[223px] sm:h-[243px] md:h-[263px] lg:h-[283px] xl:h-[433px] border border-Gray-4 rounded-4 flex flex-col justify-between overflow-hidden">
       <div className="relative w-full h-full">
         <Image src={imgSrc} alt="" fill style={{objectFit: "cover"}}/>
       </div>
-      <div className="p-2">
-        <p className="text-center text-xs font-bold">دلمه برگ کلم</p>
+      <div className="p-2 xl:p-4">
+        <p className="text-center text-xs xl:text-xl font-bold">دلمه برگ کلم</p>
         <div className="text-xs flex justify-between mt-2">
           <div className="w-4">
             <Heart className="text-Gray-5" />
@@ -30,18 +30,18 @@ const FoodItem = (props: IProps) => {
           </div>
         </div>
         <div className="flex justify-between text-xs mt-2">
-          <div className="flex gap-1 justify-center items-center">
-            <div className="w-4">
+          <div className="flex gap-1 justify-center items-center xl:text-sm xl:font-bold">
+            <div className="w-4 ">
               <Star1 />
             </div>
             <span>5</span>
           </div>
-          <div className="flex gap-1">
+          <div className="flex gap-1 xl:text-base font-bold">
             <span>{formatWithCommas(150000)}</span>
             <span>تومان</span>
           </div>
         </div>
-        <button className="bg-primary text-white w-full rounded-4 py-2 text-xs mt-3">
+        <button className="bg-primary text-white w-full rounded-4 py-2 text-xs xl:text-base mt-3">
           افزودن به سبد خرید
         </button>
       </div>
