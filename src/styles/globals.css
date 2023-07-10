@@ -35,3 +35,48 @@ svg {
 }
 
 body {}
+
+.swiper-button-prev {
+  width: 7vw !important;
+  height: 7vw !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  min-width: 20px ;
+  min-height: 20px;
+  padding: 0 !important;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #CBCBCB;
+}
+
+.swiper-button-next {
+  /* display: none !important; */
+  width: 7vw !important;
+  height: 7vw !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  min-width: 20px ;
+  min-height: 20px;
+  padding: 0 !important;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #CBCBCB;
+}
+
+.swiper-button-next::after {
+  /* display: none !important; */
+  font-size: 1em !important;
+  font-weight: 700;
+  color: #757575;
+}
+
+.swiper-button-prev::after {
+  /* display: none !important; */
+  font-size: 1em !important;
+  font-weight: 700;
+  color: #757575;
+}
+
+.swiper-button-disabled {
+  display: none !important;
+}

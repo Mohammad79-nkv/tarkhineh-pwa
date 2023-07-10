@@ -1,14 +1,14 @@
 import { Swiper, useSwiper, SwiperSlide } from "swiper/react";
 import { Scrollbar, Vertical, Navigation } from "swiper/modules";
 import FoodItem from "../foodItem";
+import { useState } from 'react';
 
 interface IProps {
   withBg?: boolean | undefined;
 }
 
 const FoodReview = (props: IProps) => {
-  const {withBg} = props
-
+  const { withBg } = props;
   const foods = [
     {
       id: 1,
@@ -55,16 +55,17 @@ const FoodReview = (props: IProps) => {
   const swiper = useSwiper();
 
   return (
-    <div className={`ps-4 py-5 ${withBg && 'bg-primary'}`}>
-      <p className={`font-bold mb-3 ${withBg && 'text-white'}`}>پیشنهاد ویژه</p>
+    <div className={`ps-4 py-5 ${withBg && "bg-primary"}`}>
+      <p className={`font-bold mb-3 ${withBg && "text-white"}`}>پیشنهاد ویژه</p>
       <Swiper
         dir="rtl"
-        // modules={[Scrollbar]}
         slidesPerView={2}
-        spaceBetween={70}
+        spaceBetween={30}
         navigation={true}
-        onSlideChange={(e) => console.log(e)}
-        onSwiper={(e) => console.log(e)}
+        centerInsufficientSlides={true}
+        fadeEffect={{ crossFade: true }}
+        grabCursor={true}
+        freeMode={true}
         modules={[Navigation]}
         breakpoints={{
           500: {
@@ -92,6 +93,7 @@ const FoodReview = (props: IProps) => {
             <FoodItem {...item} />
           </SwiperSlide>
         ))}
+        <SwiperSlide></SwiperSlide>
       </Swiper>
     </div>
   );
