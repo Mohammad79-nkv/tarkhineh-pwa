@@ -35,6 +35,9 @@ module.exports = {
         32: "32px",
         64: "64px",
       },
+      fontSize: {
+        "2xs": "10px"
+      },
       colors: {
         warning: "#A9791C",
         primary: "#417F56",

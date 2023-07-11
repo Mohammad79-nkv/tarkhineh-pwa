@@ -1,5 +1,6 @@
 "use client";
 
+import BranchComments from "@/components/branchComments";
 import BranchInfo from "@/components/branchInfo";
 import FoodReview from "@/components/foodReview";
 import Search from "@/components/home/search/Search";
@@ -15,6 +16,7 @@ const BranchPage = () => {
       <FoodReview withBg/>
       <FoodReview />
       <BranchInfo />
+      <BranchComments />
     </div>
   );
 };
