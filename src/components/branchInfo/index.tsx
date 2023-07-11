@@ -32,7 +32,7 @@ const BranchInfo = () => {
 
   return (
     <div>
-      <p className="text-center mb-3 font-bold">شعبه اکباتان</p>
+      <p className="text-center xl:text-2xl mb-3 xl:mb-5 font-bold">شعبه اکباتان</p>
       <StyledSwiper
         // className="z-[-1]"
         dir="rtl"
@@ -66,8 +66,11 @@ const BranchInfo = () => {
         // }}
       >
         {branchData.images.map((image) => (
-          <SwiperSlide key={image.id} className="" >
-            <div key={image.id} className="w-full h-[200px]">
+          <SwiperSlide key={image.id} className="">
+            <div
+              key={image.id}
+              className="w-full h-[200px] md:h-[20vw] max-w-[370px]"
+            >
               <Image
                 src={image.src}
                 fill
@@ -78,30 +81,30 @@ const BranchInfo = () => {
           </SwiperSlide>
         ))}
       </StyledSwiper>
-      <div className="relative flex flex-col gap-3 bg-white border border-primary rounded-4 mt-[-15px] z-30 w-5/6 mx-auto p-2">
-        <div className="flex gap-1 ">
+      <div className="relative bg-white border border-primary rounded-4 mt-[-15px] lg:mt-[-45px] z-30 w-5/6 max-w-[809px] mx-auto p-2 md:p-5 flex md:items-start justify-between  flex-wrap gap-2">
+        <div className="flex lg:flex-col gap-1 items-center justify-center">
+          <div className="w-4 sm:w-5 md:w-7 xl:w-8 ">
+            <CallCalling />
+          </div>
+          <div className="text-xs md:text-sm lg:text-base flex lg:flex-col gap-1">
+            {branchData.phoneNumber.map(({ id, number }) => (
+              <p key={id}>{number}</p>
+            ))}
+          </div>
+        </div>
+        <div className="flex lg:flex-col items-center justify-center gap-1 ">
           <div className="w-4 sm:w-5 md:w-7 xl:w-8">
             <Location />
           </div>
-          <p className="text-xs">{branchData.address}</p>
+          <p className="text-xs md:text-sm lg:text-base text-center">
+            {branchData.address}
+          </p>
         </div>
-        <div className="flex justify-between">
-          <div className="flex gap-1">
-            <div className="w-4 sm:w-5 md:w-7 xl:w-8 ">
-              <CallCalling />
-            </div>
-            <div className="text-xs flex gap-1">
-              {branchData.phoneNumber.map(({ id, number }) => (
-                <p key={id}>{number}</p>
-              ))}
-            </div>
+        <div className="flex lg:flex-col gap-1 items-center justify-center">
+          <div className="w-4 sm:w-5 md:w-7 xl:w-8">
+            <Clock />
           </div>
-          <div className="flex gap-1">
-            <div className="w-4 sm:w-5 md:w-7 xl:w-8">
-              <Clock />
-            </div>
-            <p className="text-xs">{branchData.hour}</p>
-          </div>
+          <p className="text-xs md:text-sm lg:text-base">{branchData.hour}</p>
         </div>
       </div>
     </div>

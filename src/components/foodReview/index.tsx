@@ -1,7 +1,8 @@
 import { Swiper, useSwiper, SwiperSlide } from "swiper/react";
 import { Scrollbar, Vertical, Navigation } from "swiper/modules";
 import FoodItem from "../foodItem";
-import { useState } from 'react';
+import { useState } from "react";
+import { FoodSwiper } from "./foodReview.style";
 
 interface IProps {
   withBg?: boolean | undefined;
@@ -55,9 +56,10 @@ const FoodReview = (props: IProps) => {
   const swiper = useSwiper();
 
   return (
-    <div className={`ps-4 py-5 ${withBg && "bg-primary"}`}>
-      <p className={`font-bold mb-3 ${withBg && "text-white"}`}>پیشنهاد ویژه</p>
-      <Swiper
+    <div className={`ps-4 py-5 md:py-7 ${withBg && "bg-primary"}`}>
+      <p className={`font-bold xl:text-2xl mb-3 md:mb-6 md:ms-[7vw] ${withBg && "text-white"}`}>پیشنهاد ویژه</p>
+      <FoodSwiper
+        withBg={withBg}
         dir="rtl"
         slidesPerView={2}
         spaceBetween={30}
@@ -94,7 +96,7 @@ const FoodReview = (props: IProps) => {
           </SwiperSlide>
         ))}
         <SwiperSlide></SwiperSlide>
-      </Swiper>
+      </FoodSwiper>
     </div>
   );
 };
