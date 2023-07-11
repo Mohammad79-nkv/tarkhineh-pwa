@@ -12,7 +12,7 @@ const BranchComments = () => {
       id: 1,
       username: "آرزو محمدعلیزاده",
       userAvatar: "/images/userAvatar.png",
-      date: new Date(),
+      // date: new Date(),
       comment:
         "از با صفا بودن شعبه اکباتان هر چی بگم کم گفتم. بهترین غذاهای گیاهی عمرمو اینجا خوردم. از مدیریت شعبه اکباتان رستوران‌های ترخینه واقعا تشکر میکنم. ",
     },
@@ -20,7 +20,7 @@ const BranchComments = () => {
       id: 5,
       username: "آرزو محمدعلیزاده",
       userAvatar: "/images/userAvatar.png",
-      date: new Date(),
+      // date: new Date(),
       comment:
         "از با صفا بودن شعبه اکباتان هر چی بگم کم گفتم. بهترین غذاهای گیاهی عمرمو اینجا خوردم. از مدیریت شعبه اکباتان رستوران‌های ترخینه واقعا تشکر میکنم. ",
     },
@@ -28,7 +28,7 @@ const BranchComments = () => {
       id: 4,
       username: "آرزو محمدعلیزاده",
       userAvatar: "/images/userAvatar.png",
-      date: new Date(),
+      // date: new Date(),
       comment:
         "از با صفا بودن شعبه اکباتان هر چی بگم کم گفتم. بهترین غذاهای گیاهی عمرمو اینجا خوردم. از مدیریت شعبه اکباتان رستوران‌های ترخینه واقعا تشکر میکنم. ",
     },
@@ -37,7 +37,7 @@ const BranchComments = () => {
       username: "آرزو محمدعلیزاده",
       userAvatar: "/images/userAvatar.png",
 
-      date: new Date(),
+      // date: new Date(),
       comment:
         "از با صفا بودن شعبه اکباتان هر چی بگم کم گفتم. بهترین غذاهای گیاهی عمرمو اینجا خوردم. از مدیریت شعبه اکباتان رستوران‌های ترخینه واقعا تشکر میکنم. ",
     },
@@ -46,7 +46,7 @@ const BranchComments = () => {
       username: "آرزو محمدعلیزاده",
       userAvatar: "/images/userAvatar.png",
 
-      date: new Date(),
+      // date: new Date(),
       comment:
         "از با صفا بودن شعبه اکباتان هر چی بگم کم گفتم. بهترین غذاهای گیاهی عمرمو اینجا خوردم. از مدیریت شعبه اکباتان رستوران‌های ترخینه واقعا تشکر میکنم. ",
     },
@@ -54,7 +54,9 @@ const BranchComments = () => {
 
   return (
     <CommentContainer className="my-5">
-      <p className="text-center xl:text-2xl mb-3 xl:mb-5 font-bold">نظرات کاربران</p>
+      <p className="text-center xl:text-2xl mb-3 xl:mb-5 font-bold">
+        نظرات کاربران
+      </p>
       <div className="relative ms-4 xl:ms-28">
         <CommentsSwiper
           dir="rtl"
@@ -95,7 +97,7 @@ const BranchComments = () => {
                   </div>
                   <div className="flex flex-col text-2xs xl:text-sm opacity-60 justify-center items-center gap-1">
                     <p className=" text">{comment.username}</p>
-                    <span>{comment.date.getTime()}</span>
+                    {/* <span>{comment?.date?.getTime()}</span> */}
                   </div>
                 </div>
                 <div className=" flex flex-col justify-center items-end gap-1">

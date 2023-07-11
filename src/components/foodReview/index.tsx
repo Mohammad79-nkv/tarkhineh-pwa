@@ -1,5 +1,5 @@
 import { Swiper, useSwiper, SwiperSlide } from "swiper/react";
-import { Scrollbar, Vertical, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import FoodItem from "../foodItem";
 import { useState } from "react";
 import { FoodSwiper } from "./foodReview.style";

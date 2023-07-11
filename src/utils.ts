@@ -1,4 +1,4 @@
-export function formatWithCommas(num): string {
+export function formatWithCommas(num: any): string {
   num += "";
   const parts = num.split(".");
   let intPart: string = parts[0];
