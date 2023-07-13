@@ -63,11 +63,11 @@ const MainNav = () => {
 
   const handleRenderNavMenu = () => {
     return (
-      <div className="md:block">
-        <ul className="text-white ps-5 md:ps-0 pt-7 md:pt-0 flex flex-col gap-6 md:flex-row md:gap-4 lg:gap-6 [&>li]:cursor-pointer">
+      <div className="">
+        <ul className="text-white md:text-primary ps-5 md:ps-0 pt-7 md:pt-0 flex flex-col gap-6 md:flex-row md:gap-4 lg:gap-6 [&>li]:cursor-pointer">
           {menuItems.map((item) => (
-            <li key={item.id} onClick={handleShowSideBar}>
-              <Link href={item.href} >{item.title}</Link>
+            <li key={item.id} onClick={() => setShowSideBar((prev) => !prev)}>
+              <Link href={item.href}>{item.title}</Link>
             </li>
           ))}
           {/* <li>صفحه اصلی</li>
@@ -126,7 +126,7 @@ const MainNav = () => {
       <div
         className={`${
           showSideBar ? "translate-x-[0%] z-[9999]" : "translate-x-[100%]"
-        } z-[9999] fixed bg-Tint-7 w-1/2 h-full transition-all ease-in-out delay-200`}
+        } md:hidden z-[9999] fixed bg-Tint-7 w-1/2 h-full transition-all ease-in-out delay-200`}
       >
         {handleRenderNavMenu()}
       </div>
