@@ -4,17 +4,18 @@ import { formatWithCommas } from "@/utils";
 
 interface IProps {
   imgSrc: string;
+  title: string;
 }
 
 const FoodItem = (props: IProps) => {
-  const { imgSrc } = props;
+  const { imgSrc, title } = props;
   return (
     <div className="bg-white w-[168px] sm:w-[188px] md:w-[208px] lg:w-[228px] xl:w-[288px]  h-[223px] sm:h-[243px] md:h-[263px] lg:h-[283px] xl:h-[433px] border border-Gray-4 rounded-4 flex flex-col justify-between overflow-hidden">
       <div className="relative w-full h-full">
         <Image src={imgSrc} alt="" fill style={{objectFit: "cover"}}/>
       </div>
       <div className="p-2 xl:p-4">
-        <p className="text-center text-xs xl:text-xl font-bold">دلمه برگ کلم</p>
+        <p className="text-center text-xs xl:text-xl font-bold">{title}</p>
         <div className="text-xs flex justify-between mt-2">
           <div className="w-4">
             <Heart className="text-Gray-5" />

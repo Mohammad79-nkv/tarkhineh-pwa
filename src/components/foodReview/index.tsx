@@ -14,42 +14,52 @@ const FoodReview = (props: IProps) => {
     {
       id: 1,
       imgSrc: "/images/food1.png",
+      title: "دلمه برگ کلم",
     },
     {
       id: 2,
-      imgSrc: "/images/food1.png",
+      imgSrc: "/images/food2.png",
+      title: "بادمجان شکم‌پر",
     },
     {
       id: 3,
-      imgSrc: "/images/food1.png",
+      imgSrc: "/images/food3.png",
+      title: "کالزونه اسفناج",
     },
     {
       id: 4,
-      imgSrc: "/images/food1.png",
+      imgSrc: "/images/food4.png",
+      title: "پیتزا قارچ",
     },
     {
       id: 5,
-      imgSrc: "/images/food1.png",
+      imgSrc: "/images/food5.png",
+      title: "پنینی اسفناج",
     },
     {
-      id: 5,
-      imgSrc: "/images/food1.png",
+      id: 6,
+      imgSrc: "/images/food6.png",
+      title: "پیتزا پپرونی",
     },
     {
-      id: 5,
-      imgSrc: "/images/food1.png",
+      id: 7,
+      imgSrc: "/images/food7.png",
+      title: "راتاتویی",
     },
     {
-      id: 5,
-      imgSrc: "/images/food1.png",
+      id: 8,
+      imgSrc: "/images/food8.png",
+      title: "بورانی بادمجان",
     },
     {
-      id: 5,
-      imgSrc: "/images/food1.png",
+      id: 9,
+      imgSrc: "/images/food9.png",
+      title: "لازانیا"
     },
     {
-      id: 5,
-      imgSrc: "/images/food1.png",
+      id: 10,
+      imgSrc: "/images/food10.png",
+      title: "سوشی"
     },
   ];
 
@@ -57,7 +67,13 @@ const FoodReview = (props: IProps) => {
 
   return (
     <div className={`ps-4 py-5 md:py-7 ${withBg && "bg-primary"}`}>
-      <p className={`font-bold xl:text-2xl mb-3 md:mb-6 md:ms-[7vw] ${withBg && "text-white"}`}>پیشنهاد ویژه</p>
+      <p
+        className={`font-bold xl:text-2xl mb-3 md:mb-6 md:ms-[7vw] ${
+          withBg && "text-white"
+        }`}
+      >
+        پیشنهاد ویژه
+      </p>
       <FoodSwiper
         withBg={withBg}
         dir="rtl"
