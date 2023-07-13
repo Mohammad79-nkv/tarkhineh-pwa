@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Logo } from "@/components/icons/Logo";
 import {
@@ -17,6 +17,71 @@ import { useState } from "react";
 
 const MainNav = () => {
   const [showProfileNav, setShowProfileNav] = useState(false);
+  const [showSideBar, setShowSideBar] = useState<boolean>(false);
+
+  const menuItems = [
+    {
+      id: 1,
+      title: "صفحه اصلی",
+      href: "/",
+    },
+    {
+      id: 2,
+      title: "شعبه",
+      href: "/branch",
+    },
+    {
+      id: 3,
+      title: "منو",
+      href: "/",
+    },
+    {
+      id: 4,
+      title: "اعطای نمایندگی",
+      href: "/",
+    },
+    {
+      id: 5,
+      title: "درباره ما",
+      href: "/",
+    },
+    {
+      id: 6,
+      title: "تماس با ما",
+      href: "/",
+    },
+  ];
+
+  const handleShowSideBar = () => {
+    setShowSideBar((prev) => !prev);
+    if (!showSideBar) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  };
+
+  const handleRenderNavMenu = () => {
+    return (
+      <div className="md:block">
+        <ul className="text-white ps-5 md:ps-0 pt-7 md:pt-0 flex flex-col gap-6 md:flex-row md:gap-4 lg:gap-6 [&>li]:cursor-pointer">
+          {menuItems.map((item) => (
+            <li key={item.id} onClick={handleShowSideBar}>
+              <Link href={item.href} >{item.title}</Link>
+            </li>
+          ))}
+          {/* <li>صفحه اصلی</li>
+          <li>
+            <Link href={"/branch"}>شعبه</Link>
+          </li>
+          <li>منو</li>
+          <li>اعطای نمایندگی</li>
+          <li>درباره ما</li>
+          <li>تماس با ما</li> */}
+        </ul>
+      </div>
+    );
+  };
 
   const profileNavs = [
     {
@@ -49,14 +114,25 @@ const MainNav = () => {
 
   return (
     <>
+      {showSideBar && (
+        <div
+          className={`${
+            showSideBar ? "opacity-100 z-1 " : "opacity-0 z-[-999]"
+          }md:hidden backdrop-blur-md w-full h-screen absolute z-10 transition-all ease-in-out delay-200`}
+          onClick={handleShowSideBar}
+        ></div>
+      )}
+
       <div
-        onClick={() => setShowProfileNav(false)}
-        className={`block ${
-          !showProfileNav && "hidden"
-        } absolute w-screen h-screen right-0 left-0`}
-      ></div>
+        className={`${
+          showSideBar ? "translate-x-[0%] z-[9999]" : "translate-x-[100%]"
+        } z-[9999] fixed bg-Tint-7 w-1/2 h-full transition-all ease-in-out delay-200`}
+      >
+        {handleRenderNavMenu()}
+      </div>
+
       <nav className="bg-White h-[64PX] text-Primary flex items-center justify-between px-[20px] py-[16px] md:px-[7vw]">
-        <div className="md:hidden">
+        <div className="md:hidden cursor-pointer" onClick={handleShowSideBar}>
           <span>
             <HambergerMenu />
           </span>
@@ -68,23 +144,12 @@ const MainNav = () => {
             </div>
           </Link>
         </div>
-
-        <div className="hidden md:block">
-          <ul className="flex md:gap-4 lg:gap-6">
-            <li>صفحه اصلی</li>
-            <li>شعبه</li>
-            <li>منو</li>
-            <li>اعطای نمایندگی</li>
-            <li>درباره ما</li>
-            <li>تماس با ما</li>
-          </ul>
-        </div>
-
+        {handleRenderNavMenu()}
         <div className="flex gap-2 text-primary">
           <Link href={"/"}>
             <div className="bg-Tint-1 md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">
               <ShoppingCart />
-            </div> 
+            </div>
           </Link>
           <Link href={"/"} className="hidden md:flex">
             <div className="bg-Tint-1 md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">

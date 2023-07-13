@@ -1,9 +1,9 @@
 import Footer from "@/components/layouts/mainLayout/footer/Footer";
 import "../styles/globals.css";
-import 'swiper/css'
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 import MainNav from "@/components/layouts/mainLayout/mainNav/MainNav";
 
@@ -20,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <MainNav />
-        <section className="min-h-screen">{children}</section>
-        <Footer />
+        <section className="relative">
+          <MainNav />
+          <section className="min-h-screen">{children}</section>
+          <Footer />
+        </section>
       </body>
     </html>
   );
