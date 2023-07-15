@@ -1,12 +1,14 @@
 {
-    "theme_color": "#417F56",
-    "background_color": "#417F56",
-    "display": "standalone",
-    "scope": "/",
-    "start_url": "/",
     "name": "Tarkhineh",
     "short_name": "Tarkhineh",
     "description": "food delivery",
+    "theme_color": "#417F56",
+    "background_color": "#417F56",
+    "display": "standalone",
+    "orientation": "portrait",
+    "id": "/",
+    "scope": "/",
+    "start_url": "/",
     "icons": [{
             "src": "/icons/android-chrome-192x192.png",
             "sizes": "192x192",
@@ -23,7 +25,6 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ],
+    ]
 
-    "orientation": "portrait"
 }
