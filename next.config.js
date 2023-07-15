@@ -22,7 +22,7 @@ module.exports = withPWA({
   // next.js config
   reactStrictMode: true,
   experimental: {
-    appDir: true
+    // appDir: true
   }
   
 });

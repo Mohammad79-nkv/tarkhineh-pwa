@@ -12,7 +12,7 @@ const BranchInfo = () => {
         src: "/images/ekbatanImg.png",
       },
       {
-        id: 1,
+        id: 2,
         src: "/images/ekbatanImg.png",
       },
     ],
@@ -22,7 +22,7 @@ const BranchInfo = () => {
         number: "021-33535354",
       },
       {
-        id: 1,
+        id: 2,
         number: "021-33535356",
       },
     ],
