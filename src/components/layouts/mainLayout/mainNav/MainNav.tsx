@@ -67,7 +67,7 @@ const MainNav = () => {
         <ul className="text-white md:text-primary ps-5 md:ps-0 pt-7 md:pt-0 flex flex-col gap-6 md:flex-row md:gap-4 lg:gap-6 [&>li]:cursor-pointer">
           {menuItems.map((item) => (
             <li key={item.id} onClick={() => setShowSideBar((prev) => !prev)}>
-              <Link href={item.href}>{item.title}</Link>
+              <Link href={item.href} legacyBehavior={false} >{item.title}</Link  >
             </li>
           ))}
           {/* <li>صفحه اصلی</li>

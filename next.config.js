@@ -24,13 +24,10 @@
 //   experimental: {
 //     // appDir: true
 //   }
-  
+
 // });
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 const path = require("path");
 const withPWAInit = require("next-pwa");
@@ -40,11 +37,11 @@ const withPWA = withPWAInit({
   dest: "public",
   // Solution: https://github.com/shadowwalker/next-pwa/issues/424#issuecomment-1399683017
   buildExcludes: ["app-build-manifest.json"],
-  disable: false
+  disable: false,
 });
 
 const generateAppDirEntry = (entry) => {
-  const packagePath = require.resolve('next-pwa');
+  const packagePath = require.resolve("next-pwa");
   const packageDirectory = path.dirname(packagePath);
   const registerJs = path.join(packageDirectory, "register.js");
 
@@ -64,6 +61,9 @@ const generateAppDirEntry = (entry) => {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
   webpack: (config) => {
     const entry = generateAppDirEntry(config.entry);
     config.entry = () => entry;
