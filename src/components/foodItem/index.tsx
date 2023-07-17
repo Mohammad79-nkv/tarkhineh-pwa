@@ -12,7 +12,7 @@ const FoodItem = (props: IProps) => {
   return (
     <div className="bg-white w-[168px] sm:w-[188px] md:w-[208px] lg:w-[228px] xl:w-[288px]  h-[223px] sm:h-[243px] md:h-[263px] lg:h-[283px] xl:h-[433px] border border-Gray-4 rounded-4 flex flex-col justify-between overflow-hidden">
       <div className="relative w-full h-full">
-        <Image src={imgSrc} alt="" fill style={{objectFit: "cover"}}/>
+        <Image src={"https://i.ibb.co/Gvykp65/food4.png"} alt="" fill style={{objectFit: "cover"}}/>
       </div>
       <div className="p-2 xl:p-4">
         <p className="text-center text-xs xl:text-xl font-bold">{title}</p>

@@ -61,6 +61,9 @@ const generateAppDirEntry = (entry) => {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [{ hostname: "i.ibb.co", protocol: "https" }],
+  },
   experimental: {
     appDir: true,
   },

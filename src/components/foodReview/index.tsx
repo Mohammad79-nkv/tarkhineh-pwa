@@ -1,8 +1,9 @@
 import { Swiper, useSwiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import FoodItem from "../foodItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FoodSwiper } from "./foodReview.style";
+import axios from "axios";
 
 interface IProps {
   withBg?: boolean | undefined;
@@ -10,58 +11,68 @@ interface IProps {
 
 const FoodReview = (props: IProps) => {
   const { withBg } = props;
-  const foods = [
-    {
-      id: 1,
-      imgSrc: "/images/food1.png",
-      title: "دلمه برگ کلم",
-    },
-    {
-      id: 2,
-      imgSrc: "/images/food2.png",
-      title: "بادمجان شکم‌پر",
-    },
-    {
-      id: 3,
-      imgSrc: "/images/food3.png",
-      title: "کالزونه اسفناج",
-    },
-    {
-      id: 4,
-      imgSrc: "/images/food4.png",
-      title: "پیتزا قارچ",
-    },
-    {
-      id: 5,
-      imgSrc: "/images/food5.png",
-      title: "پنینی اسفناج",
-    },
-    {
-      id: 6,
-      imgSrc: "/images/food6.png",
-      title: "پیتزا پپرونی",
-    },
-    {
-      id: 7,
-      imgSrc: "/images/food7.png",
-      title: "راتاتویی",
-    },
-    {
-      id: 8,
-      imgSrc: "/images/food8.png",
-      title: "بورانی بادمجان",
-    },
-    {
-      id: 9,
-      imgSrc: "/images/food9.png",
-      title: "لازانیا"
-    },
-    {
-      id: 10,
-      imgSrc: "/images/food10.png",
-      title: "سوشی"
-    },
-  ];
+  const [foods, setFoods] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/api/foods")
+      .then((res) => setFoods(res.data.foods))
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(foods, "foods")
+  // const foods = [
+  //   {
+  //     id: 1,
+  //     imgSrc: "/images/food1.png",
+  //     title: "دلمه برگ کلم",
+  //   },
+  //   {
+  //     id: 2,
+  //     imgSrc: "/images/food2.png",
+  //     title: "بادمجان شکم‌پر",
+  //   },
+  //   {
+  //     id: 3,
+  //     imgSrc: "/images/food3.png",
+  //     title: "کالزونه اسفناج",
+  //   },
+  //   {
+  //     id: 4,
+  //     imgSrc: "/images/food4.png",
+  //     title: "پیتزا قارچ",
+  //   },
+  //   {
+  //     id: 5,
+  //     imgSrc: "/images/food5.png",
+  //     title: "پنینی اسفناج",
+  //   },
+  //   {
+  //     id: 6,
+  //     imgSrc: "/images/food6.png",
+  //     title: "پیتزا پپرونی",
+  //   },
+  //   {
+  //     id: 7,
+  //     imgSrc: "/images/food7.png",
+  //     title: "راتاتویی",
+  //   },
+  //   {
+  //     id: 8,
+  //     imgSrc: "/images/food8.png",
+  //     title: "بورانی بادمجان",
+  //   },
+  //   {
+  //     id: 9,
+  //     imgSrc: "/images/food9.png",
+  //     title: "لازانیا",
+  //   },
+  //   {
+  //     id: 10,
+  //     imgSrc: "/images/food10.png",
+  //     title: "سوشی",
+  //   },
+  // ];
 
   const swiper = useSwiper();
 
