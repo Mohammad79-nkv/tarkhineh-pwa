@@ -5,8 +5,12 @@ import Food from "../../../../server/models/food";
 dbConnect();
 
 export async function GET(request: Request) {
-  const foods = await Food.find({});
-  return NextResponse.json({ foods });
+  try {
+    const foods = await Food.find({});
+    return NextResponse.json({ foods });
+  } catch (err) {
+    Promise.reject(err);
+  }
 }
 
 // export async function POST(request: Request) {
