@@ -11,7 +11,7 @@ interface IProps {
 
 const FoodReview = (props: IProps) => {
   const { withBg } = props;
-  const [foods, setFoods] = useState([]);
+  const [foods, setFoods] = useState<Array<any>>([]);
 
   useEffect(() => {
     axios
@@ -117,8 +117,8 @@ const FoodReview = (props: IProps) => {
           },
         }}
       >
-        {foods.map((item) => (
-          <SwiperSlide key={item.id}>
+        {foods?.map((item) => (
+          <SwiperSlide key={item._id}>
             <FoodItem {...item} />
           </SwiperSlide>
         ))}
