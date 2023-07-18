@@ -1,9 +1,10 @@
 import { Swiper, useSwiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import FoodItem from "../foodItem";
-import { useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { FoodSwiper } from "./foodReview.style";
 import axios from "axios";
+import { IFoods } from "../foodItem/type";
 
 interface IProps {
   withBg?: boolean | undefined;
@@ -11,68 +12,86 @@ interface IProps {
 
 const FoodReview = (props: IProps) => {
   const { withBg } = props;
-  const [foods, setFoods] = useState<Array<any>>([]);
+  const [foods, setFoods] = useState<Array<IFoods>>([
+    // {
+    //   title: null,
+    //   _id: null,
+    //   branches: null,
+    //   description: null,
+    //   discount: null,
+    //   price: null,
+    //   imgSrc: null,
+    //   vote: {
+    //     count: null,
+    //     rate: null,
+    //   },
+    // },
+    // {
+    //   title: null,
+    //   _id: null,
+    //   branches: null,
+    //   description: null,
+    //   discount: null,
+    //   price: null,
+    //   imgSrc: null,
+    //   vote: {
+    //     count: null,
+    //     rate: null,
+    //   },
+    // },
+    // {
+    //   title: null,
+    //   _id: null,
+    //   branches: null,
+    //   description: null,
+    //   discount: null,
+    //   price: null,
+    //   imgSrc: null,
+    //   vote: {
+    //     count: null,
+    //     rate: null,
+    //   },
+    // },
+    // {
+    //   title: null,
+    //   _id: null,
+    //   branches: null,
+    //   description: null,
+    //   discount: null,
+    //   price: null,
+    //   imgSrc: null,
+    //   vote: {
+    //     count: null,
+    //     rate: null,
+    //   },
+    // },
+    // {
+    //   title: null,
+    //   _id: null,
+    //   branches: null,
+    //   description: null,
+    //   discount: null,
+    //   price: null,
+    //   imgSrc: null,
+    //   vote: {
+    //     count: null,
+    //     rate: null,
+    //   },
+    // },
+  ]);
 
   useEffect(() => {
     axios
       .get("/api/foods")
-      .then((res) => setFoods(res.data.foods))
+      .then((res) =>
+        setFoods(() => {
+          return res.data.foods;
+        })
+      )
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(foods, "foods")
-  // const foods = [
-  //   {
-  //     id: 1,
-  //     imgSrc: "/images/food1.png",
-  //     title: "دلمه برگ کلم",
-  //   },
-  //   {
-  //     id: 2,
-  //     imgSrc: "/images/food2.png",
-  //     title: "بادمجان شکم‌پر",
-  //   },
-  //   {
-  //     id: 3,
-  //     imgSrc: "/images/food3.png",
-  //     title: "کالزونه اسفناج",
-  //   },
-  //   {
-  //     id: 4,
-  //     imgSrc: "/images/food4.png",
-  //     title: "پیتزا قارچ",
-  //   },
-  //   {
-  //     id: 5,
-  //     imgSrc: "/images/food5.png",
-  //     title: "پنینی اسفناج",
-  //   },
-  //   {
-  //     id: 6,
-  //     imgSrc: "/images/food6.png",
-  //     title: "پیتزا پپرونی",
-  //   },
-  //   {
-  //     id: 7,
-  //     imgSrc: "/images/food7.png",
-  //     title: "راتاتویی",
-  //   },
-  //   {
-  //     id: 8,
-  //     imgSrc: "/images/food8.png",
-  //     title: "بورانی بادمجان",
-  //   },
-  //   {
-  //     id: 9,
-  //     imgSrc: "/images/food9.png",
-  //     title: "لازانیا",
-  //   },
-  //   {
-  //     id: 10,
-  //     imgSrc: "/images/food10.png",
-  //     title: "سوشی",
-  //   },
-  // ];
+  console.log(foods, "foods");
 
   const swiper = useSwiper();
 
@@ -117,11 +136,17 @@ const FoodReview = (props: IProps) => {
           },
         }}
       >
-        {foods?.map((item) => (
-          <SwiperSlide key={item._id}>
-            <FoodItem {...item} />
-          </SwiperSlide>
-        ))}
+        {foods.length > 0
+          ? foods?.map((item) => (
+              <SwiperSlide key={item._id}>
+                <FoodItem {...item} />
+              </SwiperSlide>
+            ))
+          : [1, 2, 3, 4].map((item) => (
+              <SwiperSlide key={item}>
+                <FoodItem />
+              </SwiperSlide>
+            ))}
         <SwiperSlide></SwiperSlide>
       </FoodSwiper>
     </div>
