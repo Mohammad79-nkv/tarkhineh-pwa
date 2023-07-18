@@ -1,16 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "../../../../server/utils/dbConnect";
-import Food from "../../../../server/models/food";
+import Foods from "../../../../server/models/food";
 
 dbConnect();
 
 export async function GET(request: Request) {
-  try {
-    const foods = await Food.find({});
+  // try {
+    const foods = await Foods.find({});
     return NextResponse.json({ foods });
-  } catch (err) {
-    Promise.reject(err);
-  }
+  // } catch (err) {
+  //   Promise.reject(err);
+  // }
 }
 
 // export async function POST(request: Request) {
