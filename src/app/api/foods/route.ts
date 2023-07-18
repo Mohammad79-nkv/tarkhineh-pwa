@@ -30,7 +30,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   const res = await request.json(); // res now contains body
   try {
-    await Food.create({
+    await Foods.create({
       title: res.title,
       description: res.description,
       price: res.price,
