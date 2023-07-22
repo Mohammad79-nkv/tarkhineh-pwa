@@ -91,8 +91,6 @@ const FoodReview = (props: IProps) => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(foods, "foods");
-
   const swiper = useSwiper();
 
   return (

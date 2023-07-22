@@ -12,6 +12,25 @@
   font-style: normal;
 }
 
+/* add the code bellow */
+@layer utilities {
+  @variants responsive {
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  }
+}
+
 * {
   font-family: 'Estedad', dana, Helvetica, sans-serif;
   direction: rtl;
@@ -41,7 +60,7 @@ body {}
   height: 7vw !important;
   max-width: 32px !important;
   max-height: 32px !important;
-  min-width: 20px ;
+  min-width: 20px;
   min-height: 20px;
   padding: 0 !important;
   background-color: white;
@@ -55,7 +74,7 @@ body {}
   height: 7vw !important;
   max-width: 32px !important;
   max-height: 32px !important;
-  min-width: 20px ;
+  min-width: 20px;
   min-height: 20px;
   padding: 0 !important;
   background-color: white;

@@ -33,7 +33,7 @@ const MainNav = () => {
     {
       id: 3,
       title: "منو",
-      href: "/",
+      href: "/menu",
     },
     {
       id: 4,
@@ -67,7 +67,9 @@ const MainNav = () => {
         <ul className="text-white md:text-primary ps-5 md:ps-0 pt-7 md:pt-0 flex flex-col gap-6 md:flex-row md:gap-4 lg:gap-6 [&>li]:cursor-pointer">
           {menuItems.map((item) => (
             <li key={item.id} onClick={() => setShowSideBar((prev) => !prev)}>
-              <Link href={item.href} legacyBehavior={false} >{item.title}</Link  >
+              <Link href={item.href} legacyBehavior={false}>
+                {item.title}
+              </Link>
             </li>
           ))}
           {/* <li>صفحه اصلی</li>
@@ -144,7 +146,7 @@ const MainNav = () => {
             </div>
           </Link>
         </div>
-        {handleRenderNavMenu()}
+        <div className="hidden md:flex">{handleRenderNavMenu()}</div>
         <div className="flex gap-2 text-primary">
           <Link href={"/"}>
             <div className="bg-Tint-1 md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">
