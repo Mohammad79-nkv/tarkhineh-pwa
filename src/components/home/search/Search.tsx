@@ -1,3 +1,5 @@
+"use client"
+
 import { SearchNormal } from "iconsax-react";
 import { useState } from "react";
 
