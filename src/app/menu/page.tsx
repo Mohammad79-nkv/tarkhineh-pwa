@@ -6,6 +6,7 @@ import FoodCategory from "./FoodCategory";
 import Search from "@/components/home/search/Search";
 import axios from "axios";
 import FoodItem from "@/components/foodItem";
+import VerticalFood from "@/components/verticalCard/VerticalCard";
 
 const Menu = () => {
   const [foods, setFoods] = useState<any[]>([]);
@@ -31,15 +32,18 @@ const Menu = () => {
         </div>
         <div className="flex flex-col gap-3">
           <FoodCategory />
-          <Search />
+          <div className="px-4">
+            <Search />
+          </div>
         </div>
       </div>
-      <div>
-        {/* {foods.length > 0
-          ? foods.map((item) => <FoodItem isVertical key={item.id} {...item} />)
+      <div className="flex flex-col gap-4 px-4">
+        {foods.length > 0
+          ? foods.map((item) => <VerticalFood key={item.id} {...item} />)
           : [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-              <FoodItem isVertical key={item} />
-            ))} */}
+              <VerticalFood key={item}  />
+            ))}
+        {}
       </div>
     </section>
   );
