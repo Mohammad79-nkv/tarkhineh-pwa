@@ -13,9 +13,8 @@ const VerticalFood = (props: IProps) => {
     <div
       className={`flex h-[100px] ${title && "border border-Gray-4 rounded-4"}`}
     >
-      <div>
         <div
-          className={`relative min-h-full h-full min-w-min aspect-square ${
+          className={`relative h-full aspect-square ${
             !title && "animate-pulse bg-slate-200"
           } `}
         >
@@ -25,11 +24,11 @@ const VerticalFood = (props: IProps) => {
               alt={title}
               fill
               style={{ objectFit: "cover" }}
+              className="aspect-square"
             />
           )}
         </div>
-      </div>
-      <div className="w-full ms-2 p-2 flex flex-col justify-between box-content">
+      <div className="w-full  p-2 flex flex-col justify-between box-content">
         <div className="flex w-full justify-between">
           <div
             className={` ${
@@ -58,11 +57,11 @@ const VerticalFood = (props: IProps) => {
         </div>
         <div className="flex gap-2 w-full justify-between">
           <div
-            className={` ${
+            className={`w-24 ${
               !title && "animate-pulse bg-slate-200 w-1/2 h-4 rounded-64"
             } `}
           >
-            <p className=" w-48 text-xs truncate">{description}</p>
+            <p className=" text-2xs truncate">{description}</p>
           </div>
           <div
             className={`text-xs ${
