@@ -11,7 +11,7 @@ const VerticalFood = (props: IProps) => {
 
   return (
     <div
-      className={`flex h-[100px] ${title && "border border-Gray-4 rounded-4"}`}
+      className={`flex h-[100px] lg:h-[120px] xl:h-[140px] 2xl:h-[160px] ${title && "border border-Gray-4 rounded-4 md:rounded-8"}`}
     >
         <div
           className={`relative h-full aspect-square ${
@@ -28,14 +28,14 @@ const VerticalFood = (props: IProps) => {
             />
           )}
         </div>
-      <div className="w-full  p-2 flex flex-col justify-between box-content">
+      <div className="w-full  p-2 md:p-4 flex flex-col justify-between box-content">
         <div className="flex w-full justify-between">
           <div
             className={` ${
               !title && "animate-pulse bg-slate-200 w-1/2 h-4 rounded-64"
             } `}
           >
-            <p className="text-sm">{title}</p>
+            <p className="text-sm md:text-base xl:text-lg xl:font-bold">{title}</p>
           </div>
           <div
             className={`flex gap-2 ${
@@ -44,7 +44,7 @@ const VerticalFood = (props: IProps) => {
           >
             {price && (
               <>
-                <span className="decoration-gray-950 line-through opacity-50 text-sm">
+                <span className="decoration-gray-950 line-through opacity-50 text-sm lg:text-base">
                   {formatWithCommas(price)}
                 </span>
                 <span className="bg-Error-extralight px-1 rounded-8 flex items-center text-xs text-error">
@@ -55,23 +55,23 @@ const VerticalFood = (props: IProps) => {
             )}
           </div>
         </div>
-        <div className="flex gap-2 w-full justify-between">
+        <div className="flex gap-10 w-full justify-between">
           <div
-            className={`w-24 ${
+            className={`w-0 flex-auto ${
               !title && "animate-pulse bg-slate-200 w-1/2 h-4 rounded-64"
             } `}
           >
-            <p className=" text-2xs truncate">{description}</p>
+            <p className=" text-2xs md:text-xs xl:text-sm truncate">{description}</p>
           </div>
           <div
-            className={`text-xs ${
+            className={`text-xs md:text-sm xl:text-base ${
               !title && "animate-pulse bg-slate-200 w-1/2 h-4 rounded-64"
             } `}
           >
             {title && <span>{formatWithCommas(finalPrice)} تومان</span>}
           </div>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-end">
           <div className="flex items-center gap-2">
             <div
               className={` ${
@@ -126,9 +126,9 @@ const VerticalFood = (props: IProps) => {
               )}
             </div>
           </div>
-          <div className="w-full text-end">
+          {/* <div className="w-full text-end"> */}
             <button
-              className={` px-2 rounded-4 py-2 text-xs xl:text-base mt-3 ${
+              className={` px-2 rounded-4 py-2 text-xs xl:text-sm 2xl:text-base mt-3 ${
                 !title
                   ? "animate-pulse bg-slate-200 text-transparent "
                   : "bg-primary text-white "
@@ -136,7 +136,7 @@ const VerticalFood = (props: IProps) => {
             >
               افزودن به سبد خرید
             </button>
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </div>

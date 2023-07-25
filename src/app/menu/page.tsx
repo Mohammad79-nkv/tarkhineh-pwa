@@ -37,7 +37,7 @@ const Menu = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 px-4">
         {foods.length > 0
           ? foods.map((item) => <VerticalFood key={item.id} {...item} />)
           : [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
