@@ -35,7 +35,7 @@ const FoodCategory = () => {
   ]);
 
   return (
-    <div className="flex gap-3 text-xs cursor-grab overflow-auto no-scrollbar ms-4">
+    <div className="flex gap-3 text-xs md:text-sm lg:text-base cursor-grab overflow-auto no-scrollbar ms-4">
       {foodCategory.map((item) => (
         <div className="bg-Gray-3 flex-none py-2 px-3 rounded-64 cursor-pointer" key={item.id}>{item.title}</div>
       ))}

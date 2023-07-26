@@ -30,18 +30,20 @@ const Menu = () => {
         <div>
           <FoodType />
         </div>
-        <div className="flex flex-col gap-3">
-          <FoodCategory />
-          <div className="px-4">
+        <div className="flex justify-between flex-col md:flex-row gap-3 lg:px-[7vw]">
+          <div>
+            <FoodCategory />
+          </div>
+          <div className="px-4 md:w-1/2 lg:w-1/3">
             <Search />
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 px-4 lg:px-[7vw]">
         {foods.length > 0
           ? foods.map((item) => <VerticalFood key={item.id} {...item} />)
           : [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-              <VerticalFood key={item}  />
+              <VerticalFood key={item} />
             ))}
         {}
       </div>

@@ -43,7 +43,7 @@ const FoodType = () => {
 
   return (
     <div>
-      <div className="bg-Gray-3 flex gap-4 text-sm ps-4">
+      <div className="bg-Gray-3 flex gap-4 md:gap-6 lg:gap-8 text-sm md:text-base lg:text-lg ps-4 lg:px-[7vw]">
         {foodType.map((item) => (
           <div
             className={` h-14 ${

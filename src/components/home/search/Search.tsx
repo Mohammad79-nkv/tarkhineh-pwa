@@ -8,7 +8,7 @@ const Search = () => {
 
   return (
     <section className="w-full mb-6">
-      <div className="md:hidden">
+      <div className="">
         <span className="flex border border-opacity-40 border-neutral rounded-4 overflow-hidden py-[8px] px-[16px]">
           <input
             placeholder="جستجو"

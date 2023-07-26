@@ -11,23 +11,26 @@ const VerticalFood = (props: IProps) => {
 
   return (
     <div
-      className={`flex h-[100px] lg:h-[120px] xl:h-[140px] 2xl:h-[160px] ${title && "border border-Gray-4 rounded-4 md:rounded-8"}`}
+      className={`flex h-[100px] md:h-[110px] lg:h-[120px] xl:h-[140px] 2xl:h-[160px] ${
+        title &&
+        "border border-Gray-4 rounded-4 md:rounded-8 hover:shadow-cards-shadow transition-all"
+      }`}
     >
-        <div
-          className={`relative h-full aspect-square ${
-            !title && "animate-pulse bg-slate-200"
-          } `}
-        >
-          {imgSrc && title && (
-            <Image
-              src={imgSrc}
-              alt={title}
-              fill
-              style={{ objectFit: "cover" }}
-              className="aspect-square"
-            />
-          )}
-        </div>
+      <div
+        className={`relative h-full aspect-square ${
+          !title && "animate-pulse bg-slate-200"
+        } `}
+      >
+        {imgSrc && title && (
+          <Image
+            src={imgSrc}
+            alt={title}
+            fill
+            style={{ objectFit: "cover" }}
+            className="aspect-square"
+          />
+        )}
+      </div>
       <div className="w-full  p-2 md:p-4 flex flex-col justify-between box-content">
         <div className="flex w-full justify-between">
           <div
@@ -35,7 +38,9 @@ const VerticalFood = (props: IProps) => {
               !title && "animate-pulse bg-slate-200 w-1/2 h-4 rounded-64"
             } `}
           >
-            <p className="text-sm md:text-base xl:text-lg xl:font-bold">{title}</p>
+            <p className="text-sm md:text-base xl:text-lg xl:font-bold">
+              {title}
+            </p>
           </div>
           <div
             className={`flex gap-2 ${
@@ -61,7 +66,9 @@ const VerticalFood = (props: IProps) => {
               !title && "animate-pulse bg-slate-200 w-1/2 h-4 rounded-64"
             } `}
           >
-            <p className=" text-2xs md:text-xs xl:text-sm truncate">{description}</p>
+            <p className=" text-2xs md:text-xs xl:text-sm truncate">
+              {description}
+            </p>
           </div>
           <div
             className={`text-xs md:text-sm xl:text-base ${
@@ -127,15 +134,15 @@ const VerticalFood = (props: IProps) => {
             </div>
           </div>
           {/* <div className="w-full text-end"> */}
-            <button
-              className={` px-2 rounded-4 py-2 text-xs xl:text-sm 2xl:text-base mt-3 ${
-                !title
-                  ? "animate-pulse bg-slate-200 text-transparent "
-                  : "bg-primary text-white "
-              } `}
-            >
-              افزودن به سبد خرید
-            </button>
+          <button
+            className={` px-2 rounded-4 py-2 text-xs xl:text-sm 2xl:text- mt-3 ${
+              !title
+                ? "animate-pulse bg-slate-200 text-transparent "
+                : "bg-primary text-white "
+            } `}
+          >
+            افزودن به سبد خرید
+          </button>
           {/* </div> */}
         </div>
       </div>
