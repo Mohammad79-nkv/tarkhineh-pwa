@@ -1,6 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { Logo } from "@/components/icons/Logo";
+import { signIn } from "next-auth/react";
 import {
   User,
   ShoppingCart,
@@ -13,11 +15,17 @@ import {
   Wallet2,
 } from "iconsax-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const MainNav = () => {
   const [showProfileNav, setShowProfileNav] = useState(false);
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
+
+  const pathname = usePathname();
+  
+  if (pathname === "/signIn") {
+    return;
+  }
 
   const menuItems = [
     {
@@ -51,6 +59,8 @@ const MainNav = () => {
       href: "/",
     },
   ];
+
+  
 
   const handleShowSideBar = () => {
     setShowSideBar((prev) => !prev);
@@ -90,6 +100,7 @@ const MainNav = () => {
       id: 1,
       title: "پروفایل",
       icon: <User />,
+      onClick: signIn,
     },
     {
       id: 2,
@@ -183,6 +194,7 @@ const MainNav = () => {
                     <li
                       key={item.id}
                       className="hover:bg-Tint-1 transition-all"
+                      onClick={item.onClick}
                     >
                       <span
                         className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${

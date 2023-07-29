@@ -1,5 +1,16 @@
+"use client"
+
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+
+
+  const pathname = usePathname();
+  
+  if (pathname === "/signIn") {
+    return;
+  }
+
   return (
     <section className="flex justify-between p-4 lg:pt-10 px-[7vw] text-white h-[152px] md:h-[220px] lg:h-[319px] bg-[url('/images/FooterMobile.png')] bg-no-repeat bg-center bg-cover sm:bg-[url('/images/Footer.png')]">
       <div className="">
