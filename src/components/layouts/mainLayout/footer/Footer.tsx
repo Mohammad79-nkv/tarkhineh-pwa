@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
 import { usePathname } from "next/navigation";
 
 const Footer = () => {
-
-
   const pathname = usePathname();
-  
-  if (pathname === "/signIn") {
+
+  const notShow = ["/signIn", "/signUp"];
+
+  if (notShow.includes(pathname)) {
     return;
   }
 

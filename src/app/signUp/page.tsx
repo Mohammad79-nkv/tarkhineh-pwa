@@ -6,7 +6,7 @@ import { ArrowLeft2 } from "iconsax-react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 
-const SignIn = () => {
+const signUp = () => {
   const {
     register,
     handleSubmit,
@@ -32,7 +32,10 @@ const SignIn = () => {
             className="flex flex-col gap-4 mt-4"
           >
             {/* register your input into the hook by invoking the "register" function */}
-
+            <StyledInput placeholder="نام" {...register("example")} />
+            {errors.e && <span>This field is required</span>}
+            <StyledInput placeholder="نام خانوادگی" {...register("example")} />
+            {errors.e && <span>This field is required</span>}
             <StyledInput placeholder="شماره موبایل " {...register("example")} />
             {errors.e && <span>This field is required</span>}
 
@@ -60,8 +63,11 @@ const SignIn = () => {
                 است
               </p>
             </div>
-            <Link href="/signUp" className="flex justify-center items-center gap-2 text-sm bg-transparent">
-              ثبت نام
+            <Link
+              href="/signIn"
+              className="flex justify-center items-center gap-2 text-sm bg-transparent"
+            >
+              ورود
               <div className="w-3">
                 <ArrowLeft2 size={0} />
               </div>
@@ -73,4 +79,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default signUp;

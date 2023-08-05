@@ -22,8 +22,11 @@ const MainNav = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
 
   const pathname = usePathname();
-  
-  if (pathname === "/signIn") {
+
+  const notShow = ["/signIn", "/signUp"]
+
+  // if (pathname === "/signIn") {
+    if (notShow.includes(pathname)) {
     return;
   }
 
@@ -59,8 +62,6 @@ const MainNav = () => {
       href: "/",
     },
   ];
-
-  
 
   const handleShowSideBar = () => {
     setShowSideBar((prev) => !prev);
@@ -160,7 +161,7 @@ const MainNav = () => {
         <div className="hidden md:flex">{handleRenderNavMenu()}</div>
         <div className="flex gap-2 text-primary">
           <Link href={"/"}>
-            <div className="bg-Tint-1 md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">
+            <div className="bg-Tint-1 dark:bg-black md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">
               <ShoppingCart />
             </div>
           </Link>
