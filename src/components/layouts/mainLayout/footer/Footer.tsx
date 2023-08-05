@@ -8,7 +8,7 @@ const Footer = () => {
   const notShow = ["/signIn", "/signUp"];
 
   if (notShow.includes(pathname)) {
-    return;
+    return null;
   }
 
   return (

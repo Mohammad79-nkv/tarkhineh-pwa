@@ -27,7 +27,7 @@ const MainNav = () => {
 
   // if (pathname === "/signIn") {
     if (notShow.includes(pathname)) {
-    return;
+    return null;
   }
 
   const menuItems = [
