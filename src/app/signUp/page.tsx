@@ -12,7 +12,7 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data: any) => console.log(data);
 
   return (
     <section className="flex justify-center items-center bg-gray-100 h-screen w-screen">

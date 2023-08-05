@@ -12,7 +12,7 @@ const SignIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data: any) => console.log(data);
 
   return (
     <section className="flex justify-center items-center bg-gray-100 h-screen w-screen">
@@ -37,11 +37,7 @@ const SignIn = () => {
             {errors.e && <span>This field is required</span>}
 
             {/* include validation with required or other standard HTML validation rules */}
-            <StyledInput
-              placeholder="رمز عبور"
-              {...register("example")}
-              type="password"
-            />
+            <StyledInput placeholder="رمز عبور" {...register("example")} />
             {/* errors will return when field validation fails  */}
             {errors.exampleRequired && <span>This field is required</span>}
 
@@ -60,7 +56,10 @@ const SignIn = () => {
                 است
               </p>
             </div>
-            <Link href="/signUp" className="flex justify-center items-center gap-2 text-sm bg-transparent">
+            <Link
+              href="/signUp"
+              className="flex justify-center items-center gap-2 text-sm bg-transparent"
+            >
               ثبت نام
               <div className="w-3">
                 <ArrowLeft2 size={0} />
