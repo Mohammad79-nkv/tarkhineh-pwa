@@ -6,7 +6,7 @@ import { ArrowLeft2 } from "iconsax-react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 
-const signUp = () => {
+const SignUp = () => {
   const {
     register,
     handleSubmit,
@@ -79,4 +79,4 @@ const signUp = () => {
   );
 };
 
-export default signUp;
+export default SignUp;
