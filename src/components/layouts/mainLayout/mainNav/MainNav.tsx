@@ -23,10 +23,10 @@ const MainNav = () => {
 
   const pathname = usePathname();
 
-  const notShow = ["/signIn", "/signUp"]
+  const notShow = ["/signIn", "/signUp"];
 
   // if (pathname === "/signIn") {
-    if (notShow.includes(pathname)) {
+  if (notShow.includes(pathname)) {
     return null;
   }
 
@@ -101,7 +101,7 @@ const MainNav = () => {
       id: 1,
       title: "پروفایل",
       icon: <User />,
-      onClick: signIn,
+      route: "/signIn",
     },
     {
       id: 2,
@@ -195,18 +195,19 @@ const MainNav = () => {
                     <li
                       key={item.id}
                       className="hover:bg-Tint-1 transition-all"
-                      onClick={item.onClick}
                     >
-                      <span
-                        className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
-                          !item.noBorder && "border-b"
-                        }`}
-                      >
-                        <span className="w-[15px] md:w-[20px] me-2 ">
-                          {item.icon}
-                        </span>{" "}
-                        {item.title}
-                      </span>
+                      <Link href={item.route || '/'}>
+                        <span
+                          className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
+                            !item.noBorder && "border-b"
+                          }`}
+                        >
+                          <span className="w-[15px] md:w-[20px] me-2 ">
+                            {item.icon}
+                          </span>{" "}
+                          {item.title}
+                        </span>
+                      </Link>
                     </li>
                   ))}
                 </ul>

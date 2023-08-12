@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { IFoods } from "../foodItem/type";
-import { formatWithCommas } from "@/utils";
+import { addToCart, formatWithCommas } from "@/utils";
 
 interface IProps extends IFoods {}
 
@@ -8,6 +8,10 @@ const VerticalFood = (props: IProps) => {
   const { imgSrc, title, description, price, discount } = props;
 
   const finalPrice = price && discount && price - (price * discount) / 100;
+
+  const handleAddToCart = (item) => {
+    addToCart(item)
+  }
 
   return (
     <div
@@ -140,6 +144,7 @@ const VerticalFood = (props: IProps) => {
                 ? "animate-pulse bg-slate-200 text-transparent "
                 : "bg-primary text-white "
             } `}
+            onClick={() => handleAddToCart(props)}
           >
             افزودن به سبد خرید
           </button>
