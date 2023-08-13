@@ -20,10 +20,24 @@ import { useState, useEffect } from "react";
 const MainNav = () => {
   const [showProfileNav, setShowProfileNav] = useState(false);
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
+  const [cartCount, setCartCount] = useState<number>();
+
+  let cartNumber: any[];
+  const a = localStorage.getItem("CART");
+  if (a) {
+    cartNumber = JSON.parse(a);
+  }
 
   const pathname = usePathname();
 
   const notShow = ["/signIn", "/signUp"];
+
+  useEffect(() => {
+    if (cartNumber) {
+      setCartCount(cartNumber.length);
+    }
+    alert("efsf");
+  }, [cartNumber]);
 
   // if (pathname === "/signIn") {
   if (notShow.includes(pathname)) {
@@ -161,7 +175,10 @@ const MainNav = () => {
         <div className="hidden md:flex">{handleRenderNavMenu()}</div>
         <div className="flex gap-2 text-primary">
           <Link href={"/"}>
-            <div className="bg-Tint-1 dark:bg-black md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">
+            <div className="relative bg-Tint-1 dark:bg-black md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">
+              <span className="absolute top-[8px] right-0 w-[20px] h-[20px] flex justify-center items-center rounded-full bg-white text-primary">
+                {cartCount}
+              </span>
               <ShoppingCart />
             </div>
           </Link>
@@ -196,7 +213,7 @@ const MainNav = () => {
                       key={item.id}
                       className="hover:bg-Tint-1 transition-all"
                     >
-                      <Link href={item.route || '/'}>
+                      <Link href={item.route || "/"}>
                         <span
                           className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
                             !item.noBorder && "border-b"
