@@ -37,7 +37,7 @@ const withPWA = withPWAInit({
   dest: "public",
   // Solution: https://github.com/shadowwalker/next-pwa/issues/424#issuecomment-1399683017
   buildExcludes: ["app-build-manifest.json"],
-  disable: false,
+  disable: true,
 });
 
 const generateAppDirEntry = (entry) => {
@@ -67,12 +67,12 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  webpack: (config) => {
-    const entry = generateAppDirEntry(config.entry);
-    config.entry = () => entry;
+  // webpack: (config) => {
+  //   const entry = generateAppDirEntry(config.entry);
+  //   config.entry = () => entry;
 
-    return config;
-  },
+  //   return config;
+  // },
 };
 
 module.exports = withPWA(nextConfig);

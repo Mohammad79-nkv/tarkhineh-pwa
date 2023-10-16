@@ -9,9 +9,9 @@ const VerticalFood = (props: IProps) => {
 
   const finalPrice = price && discount && price - (price * discount) / 100;
 
-  const handleAddToCart = (item) => {
-    addToCart(item)
-  }
+  // const handleAddToCart = (item: any) => {
+  //   addToCart(item)
+  // }
 
   return (
     <div
@@ -137,18 +137,16 @@ const VerticalFood = (props: IProps) => {
               )}
             </div>
           </div>
-          {/* <div className="w-full text-end"> */}
           <button
             className={` px-2 rounded-4 py-2 text-xs xl:text-sm 2xl:text- mt-3 ${
               !title
                 ? "animate-pulse bg-slate-200 text-transparent "
                 : "bg-primary text-white "
             } `}
-            onClick={() => handleAddToCart(props)}
+            // onClick={() => handleAddToCart(props)}
           >
             افزودن به سبد خرید
           </button>
-          {/* </div> */}
         </div>
       </div>
     </div>

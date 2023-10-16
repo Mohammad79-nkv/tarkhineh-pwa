@@ -22,22 +22,22 @@ const MainNav = () => {
   const [showSideBar, setShowSideBar] = useState<boolean>(false);
   const [cartCount, setCartCount] = useState<number>();
 
-  let cartNumber: any[];
-  const a = localStorage.getItem("CART");
-  if (a) {
-    cartNumber = JSON.parse(a);
-  }
+  // let cartNumber: any[]= [];
+  // const a = localStorage.getItem("CART");
+  // if (a) {
+  //   cartNumber = JSON.parse(a);
+  // }
 
   const pathname = usePathname();
 
   const notShow = ["/signIn", "/signUp"];
 
-  useEffect(() => {
-    if (cartNumber) {
-      setCartCount(cartNumber.length);
-    }
-    alert("efsf");
-  }, [cartNumber]);
+  // useEffect(() => {
+  //   if (cartNumber) {
+  //     setCartCount(cartNumber.length);
+  //   }
+  //   alert("efsf");
+  // }, [cartNumber]);
 
   // if (pathname === "/signIn") {
   if (notShow.includes(pathname)) {
