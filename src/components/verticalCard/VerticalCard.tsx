@@ -1,3 +1,5 @@
+"use-client";
+
 import Image from "next/image";
 import { IFoods } from "../foodItem/type";
 import { addToCart, formatWithCommas } from "@/utils";
@@ -9,9 +11,9 @@ const VerticalFood = (props: IProps) => {
 
   const finalPrice = price && discount && price - (price * discount) / 100;
 
-  // const handleAddToCart = (item: any) => {
-  //   addToCart(item)
-  // }
+  const handleAddToCart = (item: any) => {
+    addToCart(item);
+  };
 
   return (
     <div
@@ -143,7 +145,7 @@ const VerticalFood = (props: IProps) => {
                 ? "animate-pulse bg-slate-200 text-transparent "
                 : "bg-primary text-white "
             } `}
-            // onClick={() => handleAddToCart(props)}
+            onClick={() => handleAddToCart(props)}
           >
             افزودن به سبد خرید
           </button>

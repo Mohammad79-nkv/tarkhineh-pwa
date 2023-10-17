@@ -1,3 +1,5 @@
+// import "client-only";
+
 export function formatWithCommas(num: any): string {
   num += "";
   const parts = num.split(".");

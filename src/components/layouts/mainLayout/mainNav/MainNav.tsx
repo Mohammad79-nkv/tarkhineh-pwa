@@ -213,7 +213,7 @@ const MainNav = () => {
                       key={item.id}
                       className="hover:bg-Tint-1 transition-all"
                     >
-                      <Link href={item.route || "/"}>
+                      {/* <Link href={item.route || "/"}> */}
                         <span
                           className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
                             !item.noBorder && "border-b"
@@ -224,7 +224,7 @@ const MainNav = () => {
                           </span>{" "}
                           {item.title}
                         </span>
-                      </Link>
+                      {/* </Link> */}
                     </li>
                   ))}
                 </ul>

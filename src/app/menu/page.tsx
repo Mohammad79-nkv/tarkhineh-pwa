@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { useEffect, useState } from "react";
 import FoodType from "./FoodType";
@@ -8,19 +8,28 @@ import axios from "axios";
 import FoodItem from "@/components/foodItem";
 import VerticalFood from "@/components/verticalCard/VerticalCard";
 
-const Menu = () => {
-  const [foods, setFoods] = useState<any[]>([]);
+const Menu = async () => {
+  // const [foods, setFoods] = useState<any[]>([]);
 
-  useEffect(() => {
-    axios
-      .get("/api/foods")
-      .then((res) =>
-        setFoods(() => {
-          return res.data.foods;
-        })
-      )
-      .catch((err) => console.log(err));
-  }, []);
+  let foods:any[] = [];
+
+  const data = await axios
+    .get("/api/foods")
+    .then((res) => {
+      foods = res.data.foods;
+    })
+    .catch((err) => console.log(err));
+
+  // useEffect(() => {
+  //   axios
+  //     .get("/api/foods")
+  //     .then((res) =>
+  //       setFoods(() => {
+  //         return res.data.foods;
+  //       })
+  //     )
+  //     .catch((err) => console.log(err));
+  // }, []);
   // const foods = await axios.get("/api/foods")
   // console.log(foods)
 
