@@ -7,7 +7,7 @@ dbConnect();
 export async function GET(request: Request) {
   // try {
     const foods = await Foods.find({});
-    return NextResponse.json({ foods });
+    return NextResponse.json( foods );
   // } catch (err) {
   //   Promise.reject(err);
   // }

@@ -1,4 +1,4 @@
-"use-client";
+// "use client";
 
 import Image from "next/image";
 import { IFoods } from "../foodItem/type";
@@ -145,7 +145,7 @@ const VerticalFood = (props: IProps) => {
                 ? "animate-pulse bg-slate-200 text-transparent "
                 : "bg-primary text-white "
             } `}
-            onClick={() => handleAddToCart(props)}
+            // onClick={() => handleAddToCart(props)}
           >
             افزودن به سبد خرید
           </button>
