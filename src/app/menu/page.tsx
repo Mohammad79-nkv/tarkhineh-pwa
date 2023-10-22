@@ -22,35 +22,13 @@ import VerticalFood from "@/components/verticalCard/VerticalCard";
 // }
 
 const Menu = async () => {
-  // const [foods, setFoods] = useState<any[]>([]);
-
-  // let foods: any[] = [];
-
-  const res = await fetch("http://localhost:3000/api/foods");
+  const res = await fetch("http://localhost:3000/api/foods", {
+    cache: "force-cache",
+    next: {
+      revalidate: 3600,
+    },
+  });
   const foodData = await res.json();
-  // foods.push(foodData.foods);
-  console.log(foodData.foods);
-  // const data = await axios
-  //   .get("/api/foods")
-  //   .then((res) => {
-  //     foods = res.data.foods;
-  //   })
-  //   .catch((err) => console.log(err));
-
-  // useEffect(() => {
-  //   axios
-  //     .get("/api/foods")
-  //     .then((res) =>
-  //       setFoods(() => {
-  //         return res.data.foods;
-  //       })
-  //     )
-  //     .catch((err) => console.log(err));
-  // }, []);
-  // const foods = await axios.get("/api/foods")
-  // console.log(foods)
-  // alert(foods.length)
-
   return (
     <section>
       <div className="flex flex-col gap-3">
@@ -67,13 +45,14 @@ const Menu = async () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 px-4 lg:px-[7vw]">
-        {/* {foods.map((item) => item.title)} */}
-
-        {foodData.foods.length > 0
-          ? foodData.foods.map((item) => <VerticalFood key={item.id} {...item} />)
+        {foodData.map((item) => (
+          <VerticalFood key={item.id} {...item} />
+        ))}
+        {/* {foodData.length > 0
+          ? 
           : [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
               <VerticalFood key={item} />
-            ))}
+            ))} */}
       </div>
     </section>
   );
