@@ -7,7 +7,7 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState('');
 
   return (
-    <section className="w-full mb-6">
+    <section className="w-full mb-6 md:hidden ">
       <div className="">
         <span className="flex border border-opacity-40 border-neutral rounded-4 overflow-hidden py-[8px] px-[16px]">
           <input
