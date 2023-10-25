@@ -110,35 +110,44 @@ const MainNav = () => {
     );
   };
 
-  const profileNavs = [
-    {
-      id: 1,
-      title: "پروفایل",
-      icon: <User />,
-      route: "/signIn",
-    },
-    {
-      id: 2,
-      title: "پیگیری سفارش",
-      icon: <Wallet2 />,
-    },
-    {
-      id: 3,
-      title: "علاقه‌مندی‌ها",
-      icon: <Heart />,
-    },
-    {
-      id: 4,
-      title: "آدرس‌های من",
-      icon: <Location />,
-    },
-    {
-      id: 5,
-      title: "خروج از حساب",
-      icon: <LogoutCurve />,
-      noBorder: true,
-    },
-  ];
+  const profileNavs = true
+    ? [
+        {
+          id: 1,
+          title: "ورود/ثبت نام",
+          icon: <User />,
+          route: "/signIn",
+        },
+      ]
+    : [
+        {
+          id: 1,
+          title: "پروفایل",
+          icon: <User />,
+          route: "/signIn",
+        },
+        {
+          id: 2,
+          title: "پیگیری سفارش",
+          icon: <Wallet2 />,
+        },
+        {
+          id: 3,
+          title: "علاقه‌مندی‌ها",
+          icon: <Heart />,
+        },
+        {
+          id: 4,
+          title: "آدرس‌های من",
+          icon: <Location />,
+        },
+        {
+          id: 5,
+          title: "خروج از حساب",
+          icon: <LogoutCurve />,
+          noBorder: true,
+        },
+      ];
 
   return (
     <>
@@ -187,50 +196,48 @@ const MainNav = () => {
               <SearchNormal1 />
             </div>
           </Link>
-          <Link href={"/"} onClick={() => setShowProfileNav((prev) => !prev)}>
-            <div className="relative">
-              <div
-                className={`bg-Tint-1 md:w-[50px] md:h-[50px] md:p-[10px]  px-[4px] py-[8px] w-6 rounded-[4px] transition-all ${
-                  showProfileNav && "bg-primary text-white md:w-[80px] flex"
-                }`}
-              >
-                <User />
-                {showProfileNav && (
-                  <span className={`hidden md:flex`}>
-                    <ArrowDown2 />
-                  </span>
-                )}
-              </div>
-              <div
-                className={`${
-                  !showProfileNav && "hidden"
-                } absolute rounded-4 md:round- z-10 bg-white
-             shadow-drop-shadow-2 top-10 md:top-14 left-0 w-40 lg:w-52 `}
-              >
-                <ul>
-                  {profileNavs.map((item) => (
-                    <li
-                      key={item.id}
-                      className="hover:bg-Tint-1 transition-all"
-                    >
-                      {/* <Link href={item.route || "/"}> */}
-                        <span
-                          className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
-                            !item.noBorder && "border-b"
-                          }`}
-                        >
-                          <span className="w-[15px] md:w-[20px] me-2 ">
-                            {item.icon}
-                          </span>{" "}
-                          {item.title}
-                        </span>
-                      {/* </Link> */}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div
+            onClick={() => setShowProfileNav((prev) => !prev)}
+            className="relative"
+          >
+            <div
+              className={` bg-Tint-1 md:w-[50px] md:h-[50px] md:p-[10px]  px-[4px] py-[8px] w-6 rounded-[4px] transition-all ${
+                showProfileNav && "bg-primary text-white md:w-[80px] flex"
+              }`}
+            >
+              <User />
+              {showProfileNav && (
+                <span className={`hidden md:flex`}>
+                  <ArrowDown2 />
+                </span>
+              )}
             </div>
-          </Link>
+            <div
+              className={`${
+                !showProfileNav && "hidden"
+              } absolute rounded-4 md:round- z-10 bg-white
+             shadow-drop-shadow-2 top-10 md:top-14 left-0 w-40 lg:w-52 `}
+            >
+              <ul>
+                {profileNavs.map((item) => (
+                  <li key={item.id} className="hover:bg-Tint-1 transition-all">
+                    <Link href={item.route || "/"}>
+                    <span
+                      className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
+                        !item.noBorder && "border-b"
+                      }`}
+                    >
+                      <span className="w-[15px] md:w-[20px] me-2 ">
+                        {item.icon}
+                      </span>{" "}
+                      {item.title}
+                    </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </nav>
     </>
