@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/icons/Logo";
-import { signIn } from "next-auth/react";
+import { signIn, useSession, signOut } from "next-auth/react";
 import {
   User,
   ShoppingCart,
@@ -29,8 +29,12 @@ const MainNav = () => {
   // }
 
   const pathname = usePathname();
+  const { status } = useSession();
 
   const notShow = ["/signIn", "/signUp"];
+  const handleSignOut = () => {
+    signOut()
+  };
 
   // useEffect(() => {
   //   if (cartNumber) {
@@ -110,44 +114,46 @@ const MainNav = () => {
     );
   };
 
-  const profileNavs = true
-    ? [
-        {
-          id: 1,
-          title: "ورود/ثبت نام",
-          icon: <User />,
-          route: "/signIn",
-        },
-      ]
-    : [
-        {
-          id: 1,
-          title: "پروفایل",
-          icon: <User />,
-          route: "/signIn",
-        },
-        {
-          id: 2,
-          title: "پیگیری سفارش",
-          icon: <Wallet2 />,
-        },
-        {
-          id: 3,
-          title: "علاقه‌مندی‌ها",
-          icon: <Heart />,
-        },
-        {
-          id: 4,
-          title: "آدرس‌های من",
-          icon: <Location />,
-        },
-        {
-          id: 5,
-          title: "خروج از حساب",
-          icon: <LogoutCurve />,
-          noBorder: true,
-        },
-      ];
+  const profileNavs =
+    status === "unauthenticated"
+      ? [
+          {
+            id: 1,
+            title: "ورود/ثبت نام",
+            icon: <User />,
+            route: "/signIn",
+          },
+        ]
+      : [
+          {
+            id: 1,
+            title: "پروفایل",
+            icon: <User />,
+            route: "/signIn",
+          },
+          {
+            id: 2,
+            title: "پیگیری سفارش",
+            icon: <Wallet2 />,
+          },
+          {
+            id: 3,
+            title: "علاقه‌مندی‌ها",
+            icon: <Heart />,
+          },
+          {
+            id: 4,
+            title: "آدرس‌های من",
+            icon: <Location />,
+          },
+          {
+            id: 5,
+            title: "خروج از حساب",
+            icon: <LogoutCurve />,
+            noBorder: true,
+            handler: handleSignOut,
+          },
+        ];
 
   return (
     <>
@@ -221,17 +227,17 @@ const MainNav = () => {
               <ul>
                 {profileNavs.map((item) => (
                   <li key={item.id} className="hover:bg-Tint-1 transition-all">
-                    <Link href={item.route || "/"}>
-                    <span
-                      className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
-                        !item.noBorder && "border-b"
-                      }`}
-                    >
-                      <span className="w-[15px] md:w-[20px] me-2 ">
-                        {item.icon}
-                      </span>{" "}
-                      {item.title}
-                    </span>
+                    <Link href={item.route || "/"} onClick={() => item.handler()}>
+                      <span
+                        className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
+                          !item.noBorder && "border-b"
+                        }`}
+                      >
+                        <span className="w-[15px] md:w-[20px] me-2 ">
+                          {item.icon}
+                        </span>{" "}
+                        {item.title}
+                      </span>
                     </Link>
                   </li>
                 ))}

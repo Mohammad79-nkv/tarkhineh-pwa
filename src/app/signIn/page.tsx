@@ -1,18 +1,29 @@
 "use client";
 
+import toast, { Toaster } from "react-hot-toast";
 import { SimpleLogo } from "@/components/icons/SimpleLoga";
 import StyledInput from "@/components/styledInput/StyledInput";
 import { ArrowLeft2 } from "iconsax-react";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
+
+type Inputs = {
+  email: string;
+  password: string;
+};
 
 const SignIn = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  } = useForm<Inputs>({ defaultValues: { email: "", password: "" } });
+  const onSubmit: SubmitHandler<Inputs> = async (form) => {
+    const { email, password } = form;
+    const res = signIn("credentials", { email, password });
+    toast.success("با موفقیت وارد شدید.");
+  };
 
   return (
     <section className="flex justify-center items-center bg-gray-100 h-screen w-screen">
@@ -33,13 +44,19 @@ const SignIn = () => {
           >
             {/* register your input into the hook by invoking the "register" function */}
 
-            <StyledInput placeholder="شماره موبایل " {...register("example")} />
-            {errors.e && <span>This field is required</span>}
+            <StyledInput
+              register={register("email")}
+              placeholder="شماره موبایل "
+            />
+            {errors.email && <span>This field is required</span>}
 
             {/* include validation with required or other standard HTML validation rules */}
-            <StyledInput placeholder="رمز عبور" {...register("example")} />
+            <StyledInput
+              register={register("password")}
+              placeholder="رمز عبور"
+            />
             {/* errors will return when field validation fails  */}
-            {errors.exampleRequired && <span>This field is required</span>}
+            {errors.password && <span>This field is required</span>}
 
             <button className="bg-primary text-white text-sm  rounded-4 py-2">
               تایید و ادامه
