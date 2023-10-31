@@ -16,6 +16,7 @@ import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import { Adapter } from "next-auth/adapters";
 export const authOptions: NextAuthOptions = {
   adapter: MongoDBAdapter(clientPromise) as Adapter,
+  secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
   },
