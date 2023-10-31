@@ -227,7 +227,7 @@ const MainNav = () => {
               <ul>
                 {profileNavs.map((item) => (
                   <li key={item.id} className="hover:bg-Tint-1 transition-all">
-                    <Link href={item.route || "/"} onClick={() => item.handler()}>
+                    <Link href={item.route || "/"} onClick={() => item.handler?.()}>
                       <span
                         className={`flex px-2 py-[8px] lg:py-[12px] text-sm md:text-base xl:text-lg md:font-bold border-neutral border-opacity-20 ${
                           !item.noBorder && "border-b"
