@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 type Inputs = {
   email: string;
@@ -20,6 +21,7 @@ const SignUp = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const router = useRouter();
+  const session = useSession();
 
   const {
     register,
@@ -56,6 +58,10 @@ const SignUp = () => {
       setLoading(false);
     }
   };
+
+  if (session.status === "authenticated") {
+    return;
+  }
 
   return (
     <section className="flex justify-center items-center bg-gray-100 h-screen w-screen">

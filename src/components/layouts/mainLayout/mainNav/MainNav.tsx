@@ -191,9 +191,9 @@ const MainNav = () => {
         <div className="flex gap-2 text-primary">
           <Link href={"/"}>
             <div className="relative bg-Tint-1 dark:bg-black md:w-[50px] md:h-[50px] md:p-[10px] px-[4px] py-[8px] w-6 rounded-[4px]">
-              <span className="absolute top-[8px] right-0 w-[20px] h-[20px] flex justify-center items-center rounded-full bg-white text-primary">
+              {/* <span className="absolute top-[8px] right-0 w-[20px] h-[20px] flex justify-center items-center rounded-full bg-white text-primary">
                 {cartCount}
-              </span>
+              </span> */}
               <ShoppingCart />
             </div>
           </Link>

@@ -6,7 +6,9 @@ import StyledInput from "@/components/styledInput/StyledInput";
 import { ArrowLeft2 } from "iconsax-react";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 type Inputs = {
   email: string;
@@ -14,6 +16,15 @@ type Inputs = {
 };
 
 const SignIn = () => {
+  const router = useRouter();
+  const session = useSession();
+  console.log(session);
+  useEffect(() => {
+    if (session.status === "authenticated") {
+      router.push("/");
+    }
+  }, [session]);
+
   const {
     register,
     handleSubmit,
@@ -21,9 +32,14 @@ const SignIn = () => {
   } = useForm<Inputs>({ defaultValues: { email: "", password: "" } });
   const onSubmit: SubmitHandler<Inputs> = async (form) => {
     const { email, password } = form;
-    const res = signIn("credentials", { email, password });
+    signIn("credentials", { email, password })
+      .then((res) => router.push("/"))
+      .catch((err) => console.log(err));
     toast.success("با موفقیت وارد شدید.");
   };
+  if (session.status === "authenticated") {
+    return;
+  }
 
   return (
     <section className="flex justify-center items-center bg-gray-100 h-screen w-screen">
