@@ -13,9 +13,9 @@ import clientPromise from "../../../../server/utils/clientPromise";
 import dbConnect from "../../../../server/utils/dbConnect";
 import User from "../../../../server/models/user";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
-
+import { Adapter } from "next-auth/adapters";
 export const authOptions: NextAuthOptions = {
-  adapter: MongoDBAdapter(clientPromise),
+  adapter: MongoDBAdapter(clientPromise) as Adapter,
   session: {
     strategy: "jwt",
   },

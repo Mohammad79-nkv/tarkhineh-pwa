@@ -1,5 +1,4 @@
-"use client"
-
+// "use client"
 import Footer from "@/components/layouts/mainLayout/footer/Footer";
 import "../styles/globals.css";
 import "swiper/css";
@@ -7,11 +6,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import toast, { Toaster } from "react-hot-toast";
 
 import MainNav from "@/components/layouts/mainLayout/mainNav/MainNav";
 import { Metadata } from "next";
-import { SessionProvider, useSession } from "next-auth/react";
+import NextAuthSessionProvider from "@/components/sessionProvider";
 
 export const metadata: Metadata = {
   title: "Tarkhineh",
@@ -32,14 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Toaster />
-        <SessionProvider>
+        <NextAuthSessionProvider>
           <section className="relative">
             <MainNav />
             <section className="min-h-screen">{children}</section>
             <Footer />
           </section>
-        </SessionProvider>
+        </NextAuthSessionProvider>
       </body>
     </html>
   );
