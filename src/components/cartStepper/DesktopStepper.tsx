@@ -16,7 +16,7 @@ const DesktopStepper = (props: Props) => {
         >
           {cartItems.indexOf(item) !== 0 && (
             <div
-              className={`border-dashed border-b-2 w-52 ${
+              className={`border-dashed border-b-2 w-24 lg:w-52 ${
                 isActive(item) ? "border-primary " : "border-stale-300"
               }`}
             ></div>

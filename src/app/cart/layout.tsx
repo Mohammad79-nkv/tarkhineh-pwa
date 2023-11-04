@@ -28,7 +28,7 @@ const Layout = ({ children }: PropsWithChildren) => {
   };
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="mx-auto flex justify-center item-center w-1/2 my-10">
+      <div className="mx-auto flex justify-center item-center w-4/5 2xl:w-1/2  my-10">
         <DesktopStepper isActive={isActive} cartItems={cartItems} />
       </div>
       {children}
