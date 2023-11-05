@@ -27,11 +27,11 @@ const Layout = ({ children }: PropsWithChildren) => {
     return itemIndex <= currentIndex;
   };
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center h-full">
       <div className="mx-auto flex justify-center item-center w-4/5 2xl:w-1/2  my-10">
         <DesktopStepper isActive={isActive} cartItems={cartItems} />
       </div>
-      {children}
+      <div className="h-screen w-full p-6 ">{children}</div>
     </div>
   );
 };
